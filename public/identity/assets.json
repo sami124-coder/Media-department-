@@ -1,0 +1,78 @@
+{
+  "source": "HSIYC_Visual_Identity_Design_Guide(1).pdf",
+  "extraction": "Original embedded JPEG streams, unmodified. Exact duplicate appearances removed.",
+  "assets": [
+    {
+      "file": "master-visual.jpg",
+      "width": 1672,
+      "height": 941,
+      "bytes": 738907
+    },
+    {
+      "file": "club-collection.jpg",
+      "width": 2048,
+      "height": 734,
+      "bytes": 454963
+    },
+    {
+      "file": "question-chat-join.jpg",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 523004
+    },
+    {
+      "file": "ideas-into-action.jpg",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 566195
+    },
+    {
+      "file": "campus-conversations.jpg",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 785553
+    },
+    {
+      "file": "new-term.jpg",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 585363
+    },
+    {
+      "file": "campus-crest.jpg",
+      "width": 1774,
+      "height": 887,
+      "bytes": 748554
+    },
+    {
+      "file": "one-campus-many-stories.jpg",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 892467
+    },
+    {
+      "file": "grow-with-us.jpg",
+      "width": 880,
+      "height": 1787,
+      "bytes": 515446
+    },
+    {
+      "file": "campus-creators.jpg",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 849710
+    },
+    {
+      "file": "campus-moments.jpg",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 561306
+    },
+    {
+      "file": "campus-insights.jpg",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 758730
+    }
+  ]
+}
