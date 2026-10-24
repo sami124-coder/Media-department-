@@ -39,7 +39,7 @@ export const activities: Activity[] = [
     category: "Campus life",
     title: "One campus. Many stories.",
     subtitle: "Small moments. Different perspectives. A shared home.",
-    image: "/identity/one-campus-many-stories.jpg",
+    image: "/identity/scene-stories.png",
     label: "CAMPUS STORIES",
     description:
       "A proposed portrait series about the people who make campus feel like home. A photograph, a conversation, and a little space for every voice.",
@@ -56,7 +56,7 @@ export const activities: Activity[] = [
     category: "Workshops",
     title: "Make something together.",
     subtitle: "A little curiosity. A camera. Endless possibilities.",
-    image: "/identity/campus-creators.jpg",
+    image: "/identity/scene-workshop.png",
     label: "CREATIVE LAB",
     description:
       "A proposed hands-on session for curious photographers, designers, writers, and filmmakers. Bring an idea or simply bring yourself; learn by making something together.",
@@ -73,68 +73,17 @@ export const activities: Activity[] = [
     category: "Our creations",
     title: "An identity made of us.",
     subtitle: "Our colors, our character, our way of connecting.",
-    image: "/identity/club-collection.jpg",
+    image: "/identity/scene-creations.png",
     label: "DESIGN EXPLORATIONS",
     description:
-      "A proposed showcase of the supplied HSIYC visual identity, exploring how its mascot, colors, and message can become objects of belonging. The artwork presents concepts, not products available to purchase.",
+      "A proposed showcase of the team’s visual experiments: playful shapes, new compositions, and creative ways to express the HSIYC identity.",
     takeaways: [
-      "Explore the original HSIYC brand artwork.",
+      "Explore our colors, character, and visual language.",
       "See how one identity works across different formats.",
       "Collect ideas for future member welcome materials.",
     ],
     meta: "Sample showcase · Identity concepts",
     color: "coral",
-  },
-  {
-    id: "campus-conversations",
-    category: "Campus life",
-    title: "Good questions. Real conversations.",
-    subtitle: "A place to listen, share, and see things differently.",
-    image: "/identity/campus-conversations.jpg",
-    label: "CAMPUS CONVERSATIONS",
-    description:
-      "A proposed conversation series that invites students to exchange perspectives on everyday campus life. Each session starts with one thoughtful question and a welcoming space to talk.",
-    takeaways: [
-      "Suggest a question that matters to you.",
-      "Listen to experiences beyond your own.",
-      "Help shape a short, consent-based conversation recap.",
-    ],
-    meta: "Proposed activity · Community",
-    color: "teal",
-  },
-  {
-    id: "idea-to-story",
-    category: "Workshops",
-    title: "From a spark to a story.",
-    subtitle: "Big ideas feel better with a first small step.",
-    image: "/identity/ideas-into-action.jpg",
-    label: "IDEAS INTO ACTION",
-    description:
-      "A proposed workshop on turning a rough idea into a clear creative brief. Together, we find the audience, choose the format, and map the smallest next step.",
-    takeaways: [
-      "Write a focused, one-page creative brief.",
-      "Sketch a simple storyboard or visual direction.",
-      "Build a practical plan with clear responsibilities.",
-    ],
-    meta: "Proposed workshop · Creative planning",
-    color: "coral",
-  },
-  {
-    id: "moments-worth-keeping",
-    category: "Our creations",
-    title: "Moments worth keeping.",
-    subtitle: "The energy of an event, saved in a little collection.",
-    image: "/identity/campus-moments.jpg",
-    label: "THE RECAP STUDIO",
-    description:
-      "A proposed approach to event recaps using the supplied scrapbook-inspired artwork. Real photographs, participant quotes, and event details can be added after an activity takes place.",
-    takeaways: [
-      "Plan the moments you want to capture.",
-      "Edit a cohesive photo selection and short caption.",
-      "Credit contributors and check permission before sharing.",
-    ],
-    meta: "Sample showcase · Event recap concept",
-    color: "blue",
   },
 ];
 

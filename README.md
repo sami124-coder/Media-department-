@@ -36,3 +36,5 @@ This is a front-end website; no backend, official contact address, or submission
 The prepared `.github/workflows/pages.yml` builds and publishes the self-contained website when `main` is pushed or the workflow is started manually. In the repository's **Settings → Pages**, choose **GitHub Actions** as the build source before the first deployment. Publishing makes the site and its supplied artwork publicly accessible. The generated page embeds its assets so it also works at a repository subpath.
 
 After enabling GitHub Pages, open **Actions → Publish HSIYC website → Run workflow** to publish the site. A successful deployment supplies the live website address. Environment publication does not deploy the website.
+
+The simplified edition uses four additional generated scenes (`scene-stories.png`, `scene-workshop.png`, `scene-creations.png`, and `scene-vision.png`) matching the hero identity. Three activity cards replace the paginated gallery, and the repeated poster section is removed. Gentle scene animation runs only while the scenes are in view; the header and footer controls pause motion, and system reduced-motion preferences are respected.

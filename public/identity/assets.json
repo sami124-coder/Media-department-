@@ -74,5 +74,37 @@
       "height": 1536,
       "bytes": 758730
     }
+  ],
+  "generated_assets": [
+    {
+      "file": "creative-world.png",
+      "source": "AI-generated from the HSIYC creative-world visual reference",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "scene-stories.png",
+      "source": "AI-generated from the HSIYC creative-world visual reference",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "scene-workshop.png",
+      "source": "AI-generated from the HSIYC creative-world visual reference",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "scene-creations.png",
+      "source": "AI-generated from the HSIYC creative-world visual reference",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "file": "scene-vision.png",
+      "source": "AI-generated from the HSIYC creative-world visual reference",
+      "width": 1536,
+      "height": 1024
+    }
   ]
 }

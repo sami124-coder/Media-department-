@@ -7,8 +7,6 @@ import {
   ArrowUpRight,
   Camera,
   Check,
-  ChevronLeft,
-  ChevronRight,
   Download,
   Globe2,
   Heart,
@@ -76,7 +74,6 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [category, setCategory] = useState("All activities");
   const [team, setTeam] = useState("Everyone");
-  const [activityPage, setActivityPage] = useState(0);
   const [modal, setModal] = useState<ModalContent | null>(null);
   const [motion, setMotion] = useState(() => {
     try {
@@ -146,12 +143,23 @@ function App() {
     return () => window.removeEventListener("keydown", close);
   }, [menuOpen]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("is-in-view", entry.isIntersecting),
+        );
+      },
+      { threshold: 0.08 },
+    );
+    document
+      .querySelectorAll(".activity-image, .vision-art, .hero-art")
+      .forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [category]);
+
   const filteredActivities = activities.filter(
     (item) => category === "All activities" || item.category === category,
-  );
-  const visibleActivities = filteredActivities.slice(
-    activityPage * 3,
-    activityPage * 3 + 3,
   );
   const filteredMembers = members.filter(
     (member) => team === "Everyone" || member.team === team,
@@ -209,6 +217,14 @@ function App() {
             </button>
           </nav>
           <div className="header-actions">
+            <button
+              className="header-motion icon-button"
+              aria-label={motion ? "Pause animations" : "Resume animations"}
+              aria-pressed={motion}
+              onClick={() => setMotion(!motion)}
+            >
+              {motion ? <Pause size={15} /> : <Play size={15} />}
+            </button>
             <button
               className="button button-navy header-join"
               onClick={() => setModal({ kind: "join" })}
@@ -302,6 +318,11 @@ function App() {
               fetchPriority="high"
             />
             <div className="scene-shade" />
+            <span className="floating-orb orb-one" aria-hidden="true" />
+            <span className="floating-orb orb-two" aria-hidden="true" />
+            <span className="floating-spark" aria-hidden="true">
+              <Sparkles size={30} />
+            </span>
             <div className="scene-caption">
               <span className="status-dot" /> IMAGINATION HAS NO BORDERS{" "}
               <ArrowUpRight size={15} />
@@ -334,29 +355,17 @@ function App() {
             <h2>
               MORE THAN MEDIA.
               <br />
-              WE MAKE <span className="text-blue">CONNECTIONS.</span>
+              <span className="text-blue">MORE CONNECTION.</span>
             </h2>
             <p>
-              We see a story in a conversation, a photo, a shared moment. Our
-              department brings those stories together—so every voice has a
-              place, and every idea has room to grow.
+              We bring campus stories to life through photography, design, and
+              shared ideas. Everyone has a place to create.
             </p>
             <a className="underlined-link" href="#vision">
               The bigger picture <ArrowUpRight size={17} />
             </a>
           </div>
           <div className="about-cards reveal">
-            <figure className="identity-board">
-              <img
-                src="/identity/master-visual.jpg"
-                alt="Original HSIYC visual identity: one campus, many stories"
-                loading="lazy"
-              />
-              <figcaption>
-                <span>THE HSIYC VISUAL WORLD</span>
-                <span>CONNECT / CREATE / CONTRIBUTE</span>
-              </figcaption>
-            </figure>
             <article className="purpose-card purpose-create">
               <div className="purpose-icon">
                 <PenTool size={22} />
@@ -396,52 +405,6 @@ function App() {
               </span>
             </article>
           </div>
-        </section>
-
-        <section
-          className="visual-manifesto"
-          aria-label="Our creative approach"
-        >
-          <div className="manifesto-heading reveal">
-            <span className="eyebrow">
-              A DIFFERENT PERSPECTIVE CHANGES EVERYTHING.
-            </span>
-            <h2>
-              LESS ORDINARY.
-              <br />
-              <span>MORE POSSIBILITY.</span>
-            </h2>
-            <p>
-              We turn a small spark into something
-              <br />
-              you can see, feel, and be part of.
-            </p>
-          </div>
-          <div className="manifesto-gallery" aria-hidden="true">
-            <img
-              className="manifesto-poster poster-a"
-              src="/identity/campus-creators.jpg"
-              alt=""
-              loading="lazy"
-            />
-            <img
-              className="manifesto-poster poster-b"
-              src="/identity/one-campus-many-stories.jpg"
-              alt=""
-              loading="lazy"
-            />
-            <img
-              className="manifesto-poster poster-c"
-              src="/identity/campus-conversations.jpg"
-              alt=""
-              loading="lazy"
-            />
-            <span className="manifesto-orbit" />
-            <Flower className="manifesto-star" />
-          </div>
-          <span className="manifesto-footnote">
-            BUILT FROM CURIOSITY. MADE FOR CONNECTION.
-          </span>
         </section>
 
         <section id="activities" className="activities-section section-space">
@@ -487,7 +450,6 @@ function App() {
                     aria-pressed={category === filter}
                     onClick={() => {
                       setCategory(filter);
-                      setActivityPage(0);
                     }}
                   >
                     {filter}
@@ -508,7 +470,7 @@ function App() {
               </span>
             </div>
             <div className="activity-grid" aria-live="polite">
-              {visibleActivities.map((activity, index) => (
+              {filteredActivities.map((activity, index) => (
                 <button
                   key={activity.id}
                   className={`activity-card activity-${activity.color}`}
@@ -535,37 +497,6 @@ function App() {
                   </div>
                 </button>
               ))}
-            </div>
-            <div className="activities-bottom">
-              <span>A little inspiration. A lot of possibility.</span>
-              <div className="pagination">
-                <span>
-                  {String(activityPage + 1).padStart(2, "0")}{" "}
-                  <i>
-                    /{" "}
-                    {String(Math.ceil(filteredActivities.length / 3)).padStart(
-                      2,
-                      "0",
-                    )}
-                  </i>
-                </span>
-                <button
-                  className="icon-button"
-                  aria-label="Previous activities"
-                  disabled={activityPage === 0}
-                  onClick={() => setActivityPage(activityPage - 1)}
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  className="icon-button"
-                  aria-label="Next activities"
-                  disabled={(activityPage + 1) * 3 >= filteredActivities.length}
-                  onClick={() => setActivityPage(activityPage + 1)}
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
             </div>
           </div>
         </section>
@@ -719,21 +650,12 @@ function App() {
           <div className="vision-art reveal">
             <div className="vision-paper">
               <img
-                src="/identity/campus-crest.jpg"
-                alt="The HSIYC campus crest surrounded by books, a globe, and the club’s teal mascot"
+                src="/identity/scene-vision.png"
+                alt="Two HSIYC mascots connecting around a glowing globe and a paper airplane"
                 loading="lazy"
               />
               <span>ROOTED IN CAMPUS. OPEN TO THE WORLD.</span>
             </div>
-            <span className="vision-tag">
-              <Globe2 size={16} /> A BIGGER PICTURE.
-            </span>
-            <Flower className="vision-flower" />
-            <span className="vision-handwritten">
-              this is where
-              <br />
-              we belong.
-            </span>
           </div>
           <div className="vision-copy reveal">
             <SectionLabel number="05">
@@ -742,9 +664,7 @@ function App() {
             <h2>
               A CAMPUS WHERE
               <br />
-              <span className="text-blue">EVERY VOICE</span>
-              <br />
-              FINDS ITS FRAME.
+              <span className="text-blue">EVERY VOICE BELONGS.</span>
             </h2>
             <p className="vision-description">
               To make creativity a shared language—connecting people,
@@ -884,7 +804,7 @@ function DetailModal({
             <div className="modal-art">
               <img
                 src={content.item.image}
-                alt={`${content.item.title} — original HSIYC identity artwork`}
+                alt={`${content.item.title} — HSIYC creative scene`}
               />
             </div>
             <div className="modal-copy">

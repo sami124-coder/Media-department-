@@ -1,32 +1,23 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
-test("activities paginate, filter, and show useful details with keyboard dismissal", async ({
+test("activities filter and show useful details with keyboard dismissal", async ({
   page,
 }) => {
   await page.goto("/");
   const section = page.locator("#activities");
   const cards = section.locator(".activity-card");
   await expect(cards).toHaveCount(3);
-  await expect(
-    section.getByRole("button", { name: "Previous activities" }),
-  ).toBeDisabled();
-  await section.getByRole("button", { name: "Next activities" }).click();
-  await expect(cards.first()).toContainText(
-    "Good questions. Real conversations.",
-  );
-  await expect(
-    section.getByRole("button", { name: "Next activities" }),
-  ).toBeDisabled();
-  await section.getByRole("button", { name: "Previous activities" }).click();
   await expect(cards.first()).toContainText("One campus. Many stories.");
-  await section.getByRole("button", { name: "Workshops", exact: true }).click();
-  await expect(cards).toHaveCount(2);
-  await expect(cards.first()).toContainText("Make something together.");
-  await expect(cards.last()).toContainText("From a spark to a story.");
-  await expect(
-    section.getByRole("button", { name: "Next activities" }),
-  ).toBeDisabled();
+  for (const [category, title] of [
+    ["Campus life", "One campus. Many stories."],
+    ["Our creations", "An identity made of us."],
+    ["Workshops", "Make something together."],
+  ]) {
+    await section.getByRole("button", { name: category, exact: true }).click();
+    await expect(cards).toHaveCount(1);
+    await expect(cards.first()).toContainText(title);
+  }
   await cards.first().click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
@@ -40,6 +31,8 @@ test("activities paginate, filter, and show useful details with keyboard dismiss
   await page.keyboard.press("Escape");
   await expect(dialog).toHaveCount(0);
   await expect(cards.first()).toBeFocused();
+  await section.getByRole("button", { name: /All activities/ }).click();
+  await expect(cards).toHaveCount(3);
 });
 
 test("directory uses the confirmed department hierarchy and separates members", async ({
@@ -206,6 +199,12 @@ test("motion preference is controllable and retained between visits", async ({
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
+  await page.getByRole("button", { name: "Pause animations", exact: true }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
+  await expect(page.getByRole("button", { name: "Motion off", exact: true })).toHaveAttribute("aria-pressed", "false");
+  await page.getByRole("button", { name: "Resume animations", exact: true }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-motion", "on");
+
   await page.getByRole("button", { name: "Motion on", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("data-motion", "off");
   await page.reload();
@@ -251,7 +250,9 @@ test("page loads its artwork and fonts without runtime errors or missing assets"
   for (const artwork of await page.locator("img").all()) {
     // Scroll the stable section: decorative poster transforms intentionally keep moving.
     await artwork.evaluate((image) =>
-      image.closest("section")?.scrollIntoView({ behavior: "instant", block: "center" }),
+      image
+        .closest("section")
+        ?.scrollIntoView({ behavior: "instant", block: "center" }),
     );
     await expect
       .poll(() =>
