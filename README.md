@@ -25,7 +25,7 @@ Edit `src/content.ts` to update the activity cards, member profiles, plan phases
 
 Activities, role responsibilities, plan phases, and vision text are proposed content. Replace them with the department’s approved information. Keep sample/proposed labels until that content is confirmed. No real event dates, member qualifications, or department contact details have been supplied.
 
-Original artwork in `public/identity/` was extracted from `HSIYC_Visual_Identity_Design_Guide(1).pdf`. The embedded JPEG images are unmodified, with exact duplicates removed; `public/identity/assets.json` records their dimensions and provenance. These are brand concepts and templates, not evidence of completed events or merchandise available to buy.
+The original identity artwork in `public/identity/` was extracted from `HSIYC_Visual_Identity_Design_Guide(1).pdf`. The embedded JPEG images are unmodified, with exact duplicates removed; `public/identity/assets.json` records their dimensions and provenance. These are brand concepts and templates, not evidence of completed events or merchandise available to buy. `creative-world.png` is a newly generated, text-free hero illustration based on that visual identity, with a deep blue studio setting. `src/studio.css` contains the immersive redesign, full-format gallery, responsive layouts, and motion styling.
 
 ## Joining and publishing
 

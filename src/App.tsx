@@ -232,20 +232,14 @@ function App() {
         <section id="home" className="hero section-shell">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span className="status-dot" /> A LITTLE DIFFERENT. A LOT
-              CONNECTED.
+              <span className="status-dot" /> THE CREATIVE SIDE OF HSIYC / 01
             </div>
             <h1>
-              ONE CAMPUS.
+              BIG IDEAS.
               <br />
-              MANY STORIES.
+              REAL PEOPLE.
               <br />
-              <span>
-                YOURS, TOO.
-                <svg viewBox="0 0 460 20" aria-hidden="true">
-                  <path d="M4 13C120 0 300 0 453 8M45 19C160 7 320 6 418 13" />
-                </svg>
-              </span>
+              <span>OUR WORLD.</span>
             </h1>
             <p className="hero-description">
               A home for curious minds and creative hearts.
@@ -301,56 +295,16 @@ function App() {
               heroRef.current?.style.setProperty("--tilt-y", "0deg");
             }}
           >
-            <div className="hero-grid" aria-hidden="true" />
-            <div className="orbit-circle" aria-hidden="true" />
-            <Flower className="hero-flower" />
-            <div className="floating-label label-top">
-              <Globe2 size={15} /> IDEAS WITHOUT BORDERS
-            </div>
-            <div className="hero-art-stack">
-              <div className="paper-back" aria-hidden="true" />
-              <figure className="hero-print">
-                <div className="paper-tape" />
-                <img
-                  src="/identity/master-visual.jpg"
-                  alt="The HSIYC visual world: a playful teal mascot, a blue globe, a camera, books, and colorful letter blocks"
-                  fetchPriority="high"
-                />
-                <figcaption>
-                  <span>OUR WORLD, IN FULL COLOR.</span>
-                  <span>
-                    HSIYC — EST. IN CURIOSITY <Plus size={12} />
-                  </span>
-                </figcaption>
-              </figure>
-            </div>
-            <div className="camera-sticker" aria-hidden="true">
-              <Camera size={29} strokeWidth={1.7} />
-              <span>
-                capture
-                <br />
-                the good.
-              </span>
-              <span className="sticker-star">✧</span>
-            </div>
-            <div className="round-stamp" aria-hidden="true">
-              <span>MADE OF</span>
-              <Heart size={25} fill="currentColor" />
-              <span>GOOD IDEAS</span>
-            </div>
-            <div className="handwritten-note">
-              a little imagination
-              <br />
-              goes a long way{" "}
-              <svg viewBox="0 0 90 55" aria-hidden="true">
-                <path d="M4 8c52 0 12 49 70 32m-13-11 17 10-13 11" />
-              </svg>
-            </div>
-            <div className="art-cross cross-one" aria-hidden="true">
-              +
-            </div>
-            <div className="art-cross cross-two" aria-hidden="true">
-              +
+            <img
+              className="hero-scene"
+              src="/identity/creative-world.png"
+              alt="A cinematic world of creativity with the teal HSIYC mascot, a globe, a camera and floating paper planes"
+              fetchPriority="high"
+            />
+            <div className="scene-shade" />
+            <div className="scene-caption">
+              <span className="status-dot" /> IMAGINATION HAS NO BORDERS{" "}
+              <ArrowUpRight size={15} />
             </div>
           </div>
           <a className="scroll-hint" href="#about">
@@ -392,6 +346,17 @@ function App() {
             </a>
           </div>
           <div className="about-cards reveal">
+            <figure className="identity-board">
+              <img
+                src="/identity/master-visual.jpg"
+                alt="Original HSIYC visual identity: one campus, many stories"
+                loading="lazy"
+              />
+              <figcaption>
+                <span>THE HSIYC VISUAL WORLD</span>
+                <span>CONNECT / CREATE / CONTRIBUTE</span>
+              </figcaption>
+            </figure>
             <article className="purpose-card purpose-create">
               <div className="purpose-icon">
                 <PenTool size={22} />
@@ -433,6 +398,52 @@ function App() {
           </div>
         </section>
 
+        <section
+          className="visual-manifesto"
+          aria-label="Our creative approach"
+        >
+          <div className="manifesto-heading reveal">
+            <span className="eyebrow">
+              A DIFFERENT PERSPECTIVE CHANGES EVERYTHING.
+            </span>
+            <h2>
+              LESS ORDINARY.
+              <br />
+              <span>MORE POSSIBILITY.</span>
+            </h2>
+            <p>
+              We turn a small spark into something
+              <br />
+              you can see, feel, and be part of.
+            </p>
+          </div>
+          <div className="manifesto-gallery" aria-hidden="true">
+            <img
+              className="manifesto-poster poster-a"
+              src="/identity/campus-creators.jpg"
+              alt=""
+              loading="lazy"
+            />
+            <img
+              className="manifesto-poster poster-b"
+              src="/identity/one-campus-many-stories.jpg"
+              alt=""
+              loading="lazy"
+            />
+            <img
+              className="manifesto-poster poster-c"
+              src="/identity/campus-conversations.jpg"
+              alt=""
+              loading="lazy"
+            />
+            <span className="manifesto-orbit" />
+            <Flower className="manifesto-star" />
+          </div>
+          <span className="manifesto-footnote">
+            BUILT FROM CURIOSITY. MADE FOR CONNECTION.
+          </span>
+        </section>
+
         <section id="activities" className="activities-section section-space">
           <div className="section-shell">
             <div className="section-heading reveal">
@@ -441,9 +452,9 @@ function App() {
                   OUT OF THE GROUP CHAT. INTO THE WORLD.
                 </SectionLabel>
                 <h2>
-                  GOOD THINGS,
+                  OUR WORLD,
                   <br />
-                  <span className="text-blue">IN THE MAKING.</span>
+                  <span className="text-blue">IN FULL COLOR.</span>
                   <Flower className="heading-flower" />
                 </h2>
               </div>
