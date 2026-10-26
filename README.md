@@ -33,7 +33,7 @@ This is a front-end website; no backend, official contact address, or submission
 
 ### GitHub Pages
 
-The prepared `.github/workflows/pages.yml` builds and publishes the self-contained website when `main` is pushed or the workflow is started manually. In the repository's **Settings → Pages**, choose **GitHub Actions** as the build source before the first deployment. Publishing makes the site and its supplied artwork publicly accessible. The generated page embeds its assets so it also works at a repository subpath.
+The prepared `.github/workflows/pages.yml` builds and publishes the self-contained website when `main` is pushed or the workflow is started manually. In the repository's **Settings → Pages**, choose **GitHub Actions** as the build source before the first deployment. Publishing makes the site and its supplied artwork publicly accessible. The published Vite build loads assets separately and uses relative URLs so it works at the repository subpath. This keeps the initial HTML small and allows images to load independently. The self-contained export remains available for offline review.
 
 After enabling GitHub Pages, open **Actions → Publish HSIYC website → Run workflow** to publish the site. A successful deployment supplies the live website address. Environment publication does not deploy the website.
 

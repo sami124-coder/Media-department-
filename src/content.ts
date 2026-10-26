@@ -39,7 +39,7 @@ export const activities: Activity[] = [
     category: "Campus life",
     title: "One campus. Many stories.",
     subtitle: "Small moments. Different perspectives. A shared home.",
-    image: "/identity/scene-stories.png",
+    image: "identity/scene-stories.png",
     label: "CAMPUS STORIES",
     description:
       "A proposed portrait series about the people who make campus feel like home. A photograph, a conversation, and a little space for every voice.",
@@ -56,7 +56,7 @@ export const activities: Activity[] = [
     category: "Workshops",
     title: "Make something together.",
     subtitle: "A little curiosity. A camera. Endless possibilities.",
-    image: "/identity/scene-workshop.png",
+    image: "identity/scene-workshop.png",
     label: "CREATIVE LAB",
     description:
       "A proposed hands-on session for curious photographers, designers, writers, and filmmakers. Bring an idea or simply bring yourself; learn by making something together.",
@@ -73,7 +73,7 @@ export const activities: Activity[] = [
     category: "Our creations",
     title: "An identity made of us.",
     subtitle: "Our colors, our character, our way of connecting.",
-    image: "/identity/scene-creations.png",
+    image: "identity/scene-creations.png",
     label: "DESIGN EXPLORATIONS",
     description:
       "A proposed showcase of the team’s visual experiments: playful shapes, new compositions, and creative ways to express the HSIYC identity.",

@@ -178,7 +178,7 @@ function App() {
             aria-label="HSIYC Media & Publicity Department home"
             onClick={() => setMenuOpen(false)}
           >
-            <img className="department-header-logo" src="/identity/department-logo.png" alt="" width="64" height="64" />
+            <img className="department-header-logo" src="identity/department-logo.png" alt="" width="64" height="64" />
             <span className="brand-copy">
               <strong>
                 HSIYC
@@ -311,7 +311,7 @@ function App() {
           >
             <img
               className="hero-scene"
-              src="/identity/creative-world.png"
+              src="identity/creative-world.png"
               alt="A cinematic world of creativity with the teal HSIYC mascot, a globe, a camera and floating paper planes"
               fetchPriority="high"
             />
@@ -404,7 +404,7 @@ function App() {
             </article>
           </div>
           <div className="department-identity reveal">
-            <img src="/identity/department-logo.png" alt="HSIYC — HITSZ International Youth Club, Media & Publicity Department" width="1254" height="1254" loading="lazy" />
+            <img src="identity/department-logo.png" alt="HSIYC — HITSZ International Youth Club, Media & Publicity Department" width="1254" height="1254" loading="lazy" />
             <div>
               <span className="eyebrow">HITSZ INTERNATIONAL YOUTH CLUB</span>
               <h3>Media &amp; Publicity Department</h3>
@@ -656,7 +656,7 @@ function App() {
           <div className="vision-art reveal">
             <div className="vision-paper">
               <img
-                src="/identity/scene-vision.png"
+                src="identity/scene-vision.png"
                 alt="Two HSIYC mascots connecting around a glowing globe and a paper airplane"
                 loading="lazy"
               />
@@ -728,7 +728,7 @@ function App() {
       <footer className="footer section-shell">
         <div className="footer-top">
           <a className="footer-brand department-footer-brand" href="#home" aria-label="HSIYC Media & Publicity Department home">
-            <img src="/identity/department-logo.png" alt="" width="100" height="100" loading="lazy" />
+            <img src="identity/department-logo.png" alt="" width="100" height="100" loading="lazy" />
             <span className="department-footer-name">HSIYC<span>MEDIA &amp; PUBLICITY DEPARTMENT</span></span>
           </a>
           <p>

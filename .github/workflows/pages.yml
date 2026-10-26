@@ -30,12 +30,12 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
-      - name: Build self-contained website
-        run: npm run export:preview
+      - name: Build website
+        run: npm run build
       - name: Prepare Pages artifact
         run: |
           mkdir -p pages-artifact
-          cp preview/HSIYC-Media-Preview.html pages-artifact/index.html
+          cp -R dist/. pages-artifact/
           cp -R downloads pages-artifact/downloads
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

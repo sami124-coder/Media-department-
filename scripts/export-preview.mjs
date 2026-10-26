@@ -23,15 +23,18 @@ if (!scriptMatch || !styleMatch)
   throw new Error("Expected one bundled production script and stylesheet.");
 let script = await readFile(path.join(dist, scriptMatch[1]), "utf8");
 for (const image of new Set(
-  script.match(/\/identity\/[a-z0-9-]+\.(?:jpg|png)/g) || [],
+  script.match(/identity\/[a-z0-9-]+\.(?:jpg|png)/g) || [],
 )) {
   script = script.replaceAll(image, await dataUrl(image));
 }
 let css = await readFile(path.join(dist, styleMatch[1]), "utf8");
-for (const asset of new Set(
-  css.match(/\/assets\/[a-zA-Z0-9_-]+\.(?:woff2|woff)/g) || [],
-)) {
-  css = css.replaceAll(asset, await dataUrl(asset));
+for (const match of [...css.matchAll(/url\(["']?([^"')]+)["']?\)/g)]) {
+  const asset = match[1];
+  if (asset.startsWith("data:")) continue;
+  const relative = asset.startsWith("/")
+    ? asset
+    : path.posix.join(path.posix.dirname(styleMatch[1]), asset);
+  css = css.replaceAll(match[0], `url("${await dataUrl(relative)}")`);
 }
 html = html.replace(
   scriptMatch[0],
@@ -39,7 +42,7 @@ html = html.replace(
     `<script type="module">${script.replaceAll("</script", "<\\/script")}</script>`,
 );
 html = html.replace(styleMatch[0], () => `<style>${css}</style>`);
-html = html.replace("/favicon.svg", await dataUrl("/favicon.svg"));
+html = html.replace(/(?:\.\/|\/)favicon\.svg/, await dataUrl("/favicon.svg"));
 const output = path.join(root, "preview", "HSIYC-Media-Preview.html");
 await mkdir(path.dirname(output), { recursive: true });
 await writeFile(output, html);
