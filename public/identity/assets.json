@@ -105,6 +105,12 @@
       "source": "AI-generated from the HSIYC creative-world visual reference",
       "width": 1536,
       "height": 1024
+    },
+    {
+      "file": "department-logo.png",
+      "source": "Image-tool reproduction of the department logo supplied in chat; preserves its wording and design. Not the original source file.",
+      "width": 1254,
+      "height": 1254
     }
   ]
 }

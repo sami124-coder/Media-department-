@@ -175,17 +175,15 @@ function App() {
           <a
             className="brand"
             href="#home"
-            aria-label="HSIYC Media Department home"
+            aria-label="HSIYC Media & Publicity Department home"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="brand-mark">
-              H<Flower className="brand-spark" />
-            </span>
+            <img className="department-header-logo" src="/identity/department-logo.png" alt="" width="64" height="64" />
             <span className="brand-copy">
               <strong>
-                HSIYC<span>✦</span>
+                HSIYC
               </strong>
-              <span>MEDIA DEPARTMENT</span>
+              <span>MEDIA &amp; PUBLICITY<br />DEPARTMENT</span>
             </span>
           </a>
           <nav
@@ -404,6 +402,14 @@ function App() {
                 MANY VOICES. ONE HSIYC. <Sparkles size={12} />
               </span>
             </article>
+          </div>
+          <div className="department-identity reveal">
+            <img src="/identity/department-logo.png" alt="HSIYC — HITSZ International Youth Club, Media & Publicity Department" width="1254" height="1254" loading="lazy" />
+            <div>
+              <span className="eyebrow">HITSZ INTERNATIONAL YOUTH CLUB</span>
+              <h3>Media &amp; Publicity Department</h3>
+              <p>Our people. Our stories. Our shared world.</p>
+            </div>
           </div>
         </section>
 
@@ -721,8 +727,9 @@ function App() {
 
       <footer className="footer section-shell">
         <div className="footer-top">
-          <a className="footer-brand" href="#home">
-            HSIYC<span>MEDIA DEPARTMENT</span>
+          <a className="footer-brand department-footer-brand" href="#home" aria-label="HSIYC Media & Publicity Department home">
+            <img src="/identity/department-logo.png" alt="" width="100" height="100" loading="lazy" />
+            <span className="department-footer-name">HSIYC<span>MEDIA &amp; PUBLICITY DEPARTMENT</span></span>
           </a>
           <p>
             Connect. Create. Contribute.
@@ -948,7 +955,7 @@ function JoinContent() {
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          const text = `Hi HSIYC Media Department!\n\nMy name is ${name.trim()}. I’m interested in ${interest.toLowerCase()}.\n\n${note.trim() || "I would love to learn more about getting involved and creating with the team."}\n\nLooking forward to connecting!\n${name.trim()}\n`;
+          const text = `Hi HSIYC Media & Publicity Department!\n\nMy name is ${name.trim()}. I’m interested in ${interest.toLowerCase()}.\n\n${note.trim() || "I would love to learn more about getting involved and creating with the team."}\n\nLooking forward to connecting!\n${name.trim()}\n`;
           const url = URL.createObjectURL(
             new Blob([text], { type: "text/plain;charset=utf-8" }),
           );

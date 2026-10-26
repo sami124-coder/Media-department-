@@ -1,4 +1,4 @@
-# HSIYC Media Department
+# HSIYC Media & Publicity Department
 
 A responsive React, TypeScript, and Vite website based on the supplied HSIYC visual identity. It introduces the department’s people, activities, proposed plan, and vision with accessible motion controls.
 
@@ -38,3 +38,5 @@ The prepared `.github/workflows/pages.yml` builds and publishes the self-contain
 After enabling GitHub Pages, open **Actions → Publish HSIYC website → Run workflow** to publish the site. A successful deployment supplies the live website address. Environment publication does not deploy the website.
 
 The simplified edition uses four additional generated scenes (`scene-stories.png`, `scene-workshop.png`, `scene-creations.png`, and `scene-vision.png`) matching the hero identity. Three activity cards replace the paginated gallery, and the repeated poster section is removed. Gentle scene animation runs only while the scenes are in view; the header and footer controls pause motion, and system reduced-motion preferences are respected.
+
+The department logo in `public/identity/department-logo.png` is an image-tool reproduction of the logo supplied in chat, preserving its wording and composition as closely as possible; it is not the original source file. It appears in the header, department introduction, footer, and downloadable presentation. The PowerPoint and PDF in `downloads/` are published alongside the website.

@@ -2597,3 +2597,40 @@ html[data-motion="off"] .vision-paper > img {
     font-size: 40px;
   }
 }
+
+/* Department logo supplied by the team; keep the complete artwork visible. */
+.department-header-logo {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  object-fit: contain;
+  background: white;
+  border-radius: 6px;
+}
+.brand-copy > span { line-height: 1.45; }
+.department-identity {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  padding: 16px 36px;
+  background: #fff;
+  border-radius: 12px;
+}
+.department-identity > img { width: 280px; height: 280px; object-fit: contain; flex: 0 0 280px; }
+.department-identity .eyebrow { color: var(--muted); font-size: 10px; letter-spacing: 1.4px; }
+.department-identity h3 { font-size: clamp(23px, 2.5vw, 34px); margin: 14px 0 10px; }
+.department-identity p { color: var(--muted); font-size: 14px; }
+.department-footer-brand { display: flex; align-items: center; gap: 16px; }
+.department-footer-brand > img { width: 100px; height: 100px; object-fit: contain; border-radius: 6px; }
+.department-footer-brand > .department-footer-name { font: 700 38px/1 var(--heading); letter-spacing: 1px; margin: 0; }
+.department-footer-name > span { display: block; font: 600 8px/1.5 'DM Sans', sans-serif; letter-spacing: 1px; margin-top: 8px; }
+@media (max-width: 700px) {
+  .department-header-logo { width: 52px; height: 52px; flex-basis: 52px; }
+  .department-identity { flex-direction: column; gap: 4px; padding: 14px 18px 28px; text-align: center; }
+  .department-identity > img { width: min(280px, 100%); height: auto; flex-basis: auto; }
+  .department-footer-brand { gap: 10px; }
+  .department-footer-brand > img { width: 74px; height: 74px; }
+  .department-footer-brand > .department-footer-name { font-size: 30px; }
+  .department-footer-name > span { max-width: 150px; font-size: 7px; }
+}
