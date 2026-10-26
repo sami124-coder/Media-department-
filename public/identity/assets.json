@@ -112,5 +112,37 @@
       "width": 1254,
       "height": 1254
     }
+  ],
+  "delivery_assets": [
+    {
+      "file": "creative-world.webp",
+      "source": "creative-world.png",
+      "encoding": "WebP quality 85; original dimensions and artwork retained"
+    },
+    {
+      "file": "scene-stories.webp",
+      "source": "scene-stories.png",
+      "encoding": "WebP quality 85; original dimensions and artwork retained"
+    },
+    {
+      "file": "scene-workshop.webp",
+      "source": "scene-workshop.png",
+      "encoding": "WebP quality 85; original dimensions and artwork retained"
+    },
+    {
+      "file": "scene-creations.webp",
+      "source": "scene-creations.png",
+      "encoding": "WebP quality 85; original dimensions and artwork retained"
+    },
+    {
+      "file": "scene-vision.webp",
+      "source": "scene-vision.png",
+      "encoding": "WebP quality 85; original dimensions and artwork retained"
+    },
+    {
+      "file": "department-logo.webp",
+      "source": "department-logo.png",
+      "encoding": "WebP quality 85; original dimensions and artwork retained"
+    }
   ]
 }

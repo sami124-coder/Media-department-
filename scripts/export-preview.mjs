@@ -10,6 +10,7 @@ const types = {
   ".woff": "font/woff",
   ".jpg": "image/jpeg",
   ".png": "image/png",
+  ".webp": "image/webp",
   ".svg": "image/svg+xml",
 };
 const dataUrl = async (relative) => {
@@ -23,7 +24,7 @@ if (!scriptMatch || !styleMatch)
   throw new Error("Expected one bundled production script and stylesheet.");
 let script = await readFile(path.join(dist, scriptMatch[1]), "utf8");
 for (const image of new Set(
-  script.match(/identity\/[a-z0-9-]+\.(?:jpg|png)/g) || [],
+  script.match(/identity\/[a-z0-9-]+\.(?:jpg|png|webp)/g) || [],
 )) {
   script = script.replaceAll(image, await dataUrl(image));
 }
