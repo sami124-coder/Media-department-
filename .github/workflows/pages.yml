@@ -36,6 +36,7 @@ jobs:
         run: |
           mkdir -p pages-artifact
           cp preview/HSIYC-Media-Preview.html pages-artifact/index.html
+          cp -R downloads pages-artifact/downloads
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload website
